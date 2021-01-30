@@ -1,0 +1,12 @@
+@url = http://localhost:3000
+
+POST {{url}}/api/users/a HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Allen",
+    "age":12
+}
+
+###
+GET {{url}}/api/users HTTP/1.1
