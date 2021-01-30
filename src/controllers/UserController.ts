@@ -1,4 +1,4 @@
-import {Controller,Get} from '@overnightjs/core'
+import {Controller,Get, Post} from '@overnightjs/core'
 import {Request,Response} from 'express'
 
 @Controller('api/users')
@@ -12,5 +12,12 @@ export class UserController{
         return res.status(200).json({
             message:"成功获取"
         });
+    }
+
+    @Post('a')
+    private postAll(req:Request,res:Response){
+        const body = req.body;
+        console.log(body);
+        res.status(200).json({body})
     }
 }

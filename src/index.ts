@@ -1,8 +1,8 @@
 import {Server} from '@overnightjs/core'
-
+import path from 'path'
 import fs from 'fs-extra'
-
-const dirs = fs.readdirSync('./controllers');
+import bodyParser from 'body-parser'
+const dirs = fs.readdirSync(path.join(__dirname,'./controllers'));
 const PORT = process.env.PORT === undefined? 3000:Number(process.env.PORT);
 
 export class Servers extends Server{
@@ -31,4 +31,7 @@ export class Servers extends Server{
 }
 
 const sampleServer = new Servers();
+sampleServer.app.post('*',bodyParser.json(),(req,res,next)=>{
+    next();
+});
 sampleServer.start(PORT);
