@@ -1,4 +1,5 @@
 {
     "name":"Allen",
-    "host":"douban.com"
+    "host":"douban.com",
+    "secret":"express-ts"
 }
